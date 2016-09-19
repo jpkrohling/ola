@@ -87,7 +87,8 @@ public class OlaController {
                 .addInterceptorFirst(new BraveHttpRequestInterceptor(brave.clientRequestInterceptor(), new DefaultSpanNameProvider()))
                 .addInterceptorFirst(new BraveHttpResponseInterceptor(brave.clientResponseInterceptor()))
                 .build();
-        String url = String.format("http://%s:8080/", serviceName);
+//        String url = String.format("http://%s:8080/", serviceName);
+        String url = "http://localhost:8083/";
         return HystrixFeign.builder()
             // Use apache HttpClient which contains the ZipKin Interceptors
             .client(new ApacheHttpClient(httpclient))
